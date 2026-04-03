@@ -10,6 +10,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { Button } from "../components/Button";
 import emailjs from "@emailjs/browser";
+import { useInViewOnce } from "../hooks/useInViewOnce";
  
 const contactInfo = [
   {
@@ -33,6 +34,7 @@ const contactInfo = [
 ];
 
 export const Contact = () => {
+  const { ref, isInView } = useInViewOnce();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -91,7 +93,13 @@ export const Contact = () => {
     }
   };
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
+    <section
+      id="contact"
+      ref={ref}
+      className={`py-32 scroll-mt-24 relative overflow-hidden section-reveal ${
+        isInView ? "in-view" : ""
+      }`}
+    >
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />

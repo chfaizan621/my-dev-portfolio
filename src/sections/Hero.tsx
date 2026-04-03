@@ -3,7 +3,7 @@ import {
   ChevronDown,
   Github,
   Linkedin,
-  Twitter,
+  Mail,
   Download,
 } from "lucide-react";
 import { Button } from "../components/Button";
@@ -31,6 +31,10 @@ const skills = [
 ];
 
 export const Hero = () => {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -45,7 +49,7 @@ export const Hero = () => {
 
       {/* Green Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(30)].map(() => (
           <div
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
@@ -93,10 +97,10 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
+              <Button size="lg" onClick={scrollToContact} type="button">
                 Contact Me <ArrowRight className="w-5 h-5" />
               </Button>
-              <AnimatedBorderButton>
+              <AnimatedBorderButton href="/cv/Faizan_CV.pdf" download>
                 <Download className="w-5 h-5" />
                 Download CV
               </AnimatedBorderButton>
@@ -104,11 +108,10 @@ export const Hero = () => {
 
             {/* Social Links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
-              <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
                 { icon: Github, href: "https://github.com/chfaizan621" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/ch-faizan" },
-                { icon: Twitter, href: "#" },
+                { icon: Mail, href: "mailto:chfaizan621@gmail.com" },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -123,22 +126,22 @@ export const Hero = () => {
           {/* Right Column - Profile Image */}
           <div className="relatice animate-fade-in animation-delay-300">
             {/* Profile Image */}
-            <div className="relative max-w-md mx-auto">
+            <div className="group relative max-w-md mx-auto transition-transform duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02]">
               <div
-                className="absolute inset-0 
+                className="absolute inset-0 transition-all duration-500 ease-out 
               rounded-3xl bg-gradient-to-br 
               from-primary/30 via-transparent 
               to-primary/10 blur-2xl animate-pulse"
               />
-              <div className="relative glass rounded-3xl p-2 glow-border">
+              <div className="relative glass rounded-3xl p-2 glow-border transition-all duration-500 ease-out">
                 <img
-                  src="/profile-pic.png"
+                  src="/profile-pic2.png"
                   alt="Pedro Machado"
-                  className="w-full aspect-[4/5] object-cover rounded-2xl"
+                  className="w-full aspect-[4/5] object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
                 {/* Floating Badge */}
-                <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
+                <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float transition-transform duration-500 group-hover:translate-y-[-4px] group-hover:translate-x-[2px]">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-sm font-medium">
@@ -147,7 +150,7 @@ export const Hero = () => {
                   </div>
                 </div>
                 {/* Stats Badge */}
-                <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
+                <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500 transition-transform duration-500 group-hover:translate-y-[-4px] group-hover:translate-x-[-2px]">
                   <div className="text-2xl font-bold text-primary">2+</div>
                   <div className="text-xs text-muted-foreground">
                     Years Exp.

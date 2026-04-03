@@ -1,47 +1,76 @@
-import { ArrowUpRight, Github } from "lucide-react";
-import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import { ArrowUpRight } from "lucide-react";
+import { useInViewOnce } from "../hooks/useInViewOnce";
 const projects = [
   {
-    title: "Fintech Dashboard",
+    title: "1st Choice Delivery",
     description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
+      "A modern delivery platform designed to streamline the process of ordering and delivering goods, with real-time tracking, seamless user experience and order management.",
     image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS"],
-    link: "#",
-    github: "#",
+    tags: [
+      "Next.js",
+      "Supabase",
+      "Azure Queue",
+      "Docker",
+      "DigitalOcean",
+      "SendGrid",
+      "Twilio",
+      "Tailwind",
+    ],
+    link: "https://1stchoicedelivery.com/",
   },
   {
-    title: "E-Commerce Platform",
+    title: "FamilyCentral",
     description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
+      "A standalone software system that allows families to enter applications directly into your agency’s eligibility list and subsidy management system.",
     image: "/projects/project2.png",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    link: "#",
-    github: "#",
+    tags: [
+      "MERN",
+      "TypeScript",
+      "Cosmos DB",
+      "SurveyJS",
+      "Material UI",
+      "Azure DevOps,",
+      "Okta SSO",
+    ],
+    link: "https://familycentral.ldoecc.com/",
   },
   {
-    title: "AI Writing Assistant",
+    title: "AgriTech Pakistan",
     description:
-      "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
+      "A standalone software solution for the agricultural sector in Pakistan, providing farmers with tools and insights to improve productivity and decision-making.",
     image: "/projects/project3.png",
-    tags: ["React", "OpenAI", "Python", "FastAPI"],
-    link: "#",
-    github: "#",
+    tags: [
+      "DotNet",
+      "Flutter",
+      "Next.js",
+      "WebRTC",
+      "Azure",
+      "SSMS",
+      "Hugging Face",
+      "AWS S3",
+    ],
   },
   {
-    title: "Project Management Tool",
+    title: "Marine Design Consultancy",
     description:
-      "A collaborative workspace for teams with real-time updates, task tracking, and integrations.",
+      "A Marine Design Company that provides design services for marine and offshore industries.",
     image: "/projects/project4.png",
-    tags: ["Next.js", "Socket.io", "MongoDB", "Redis"],
-    link: "#",
-    github: "#",
+    tags: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Node.js"],
+    link: "https://www.marinedesignc.com/",
   },
 ];
 
 export const Projects = () => {
+  const { ref, isInView } = useInViewOnce();
+
   return (
-    <section id="projects" className="py-32 relative overflow-hidden">
+    <section
+      id="projects"
+      ref={ref}
+      className={`py-32 relative overflow-hidden section-reveal ${
+        isInView ? "in-view" : ""
+      }`}
+    >
       {/* Bg glows */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
@@ -86,18 +115,14 @@ export const Projects = () => {
                 />
                 {/* Overlay Links */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.link}
-                    className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={project.github}
-                    className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                    >
+                      <ArrowUpRight className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -107,12 +132,14 @@ export const Projects = () => {
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <ArrowUpRight
-                    className="w-5 h-5 
-                  text-muted-foreground group-hover:text-primary
-                   group-hover:translate-x-1 
-                   group-hover:-translate-y-1 transition-all"
-                  />
+                  {project.link && (
+                    <ArrowUpRight
+                      className="w-5 h-5 
+                    text-muted-foreground group-hover:text-primary
+                     group-hover:translate-x-1 
+                     group-hover:-translate-y-1 transition-all"
+                    />
+                  )}
                 </div>
                 <p className="text-muted-foreground text-sm">
                   {project.description}
@@ -130,14 +157,6 @@ export const Projects = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* View All CTA */}
-        <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton>
-            View All Projects
-            <ArrowUpRight className="w-5 h-5" />
-          </AnimatedBorderButton>
         </div>
       </div>
     </section>

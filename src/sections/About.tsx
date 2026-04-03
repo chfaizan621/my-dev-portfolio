@@ -1,4 +1,5 @@
 import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
+import { useInViewOnce } from "../hooks/useInViewOnce";
 
 const highlights = [
   {
@@ -27,8 +28,16 @@ const highlights = [
 ];
 
 export const About = () => {
+  const { ref, isInView } = useInViewOnce();
+
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section
+      id="about"
+      ref={ref}
+      className={`py-32 relative overflow-hidden section-reveal ${
+        isInView ? "in-view" : ""
+      }`}
+    >
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}

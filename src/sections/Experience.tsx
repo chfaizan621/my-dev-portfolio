@@ -1,45 +1,55 @@
+import { useInViewOnce } from "../hooks/useInViewOnce";
+
 const experiences = [
   {
-    period: "2022 — Present",
-    role: "Senior Frontend Engineer",
-    company: "Tech Innovators Inc.",
+    period: "2026 — Present",
+    role: "Software Engineer II",
+    company: "Futurenostics",
     description:
-      "Leading frontend architecture for a suite of fintech products. Implemented micro-frontend architecture, reduced bundle size by 40%, and mentored a team of 5 developers.",
-    technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
+      "Leading full-stack development of scalable platforms at Futurenostics, implementing secure authentication, SSO, and event-driven architectures; optimized database performance, enhanced workflows, and improved responsiveness across multiple enterprise systems.",
+    technologies: ["MERN", "TypeScript", "SurveyJS", "Azure DevOps,", "Okta SSO"],
     current: true,
   },
   {
-    period: "2020 — 2022",
-    role: "Frontend Engineer",
-    company: "Digital Solutions Co.",
+    period: "2024 — 2026",
+    role: "Software Engineer I",
+    company: "Futurenostics",
     description:
-      "Built and maintained multiple React applications for enterprise clients. Introduced automated testing practices that improved code coverage to 85%.",
-    technologies: ["React", "Redux", "Jest", "Cypress"],
+      "Contributed to full-stack development at Futurenostics as an associate software engineer, building core features, integrating APIs, improving UI responsiveness, and supporting secure authentication and database optimization across applications.",
+    technologies: ["Next.js", "Supabase", "Azure Queue", "Docker", "DigitalOcean", "SendGrid", "Twilio", "Tailwind"],
     current: false,
   },
   {
-    period: "2019 — 2020",
-    role: "Junior Developer",
-    company: "StartUp Labs",
+    period: "July 2024 — August 2024",
+    role: "SDE Intern",
+    company: "Air University",
     description:
-      "Contributed to the development of a SaaS platform from MVP to production. Collaborated with designers to implement pixel-perfect UI components.",
-    technologies: ["React", "Node.js", "MongoDB", "AWS"],
+      "Developed a full-stack AgriTech platform at Air University Islamabad, implementing RBAC, AI-driven crop insights, real-time communication, and farmer-focused features to enhance engagement, accessibility, and decision-making for low-literacy users.",
+    technologies: ["DotNet", "Flutter", "Next.js", "WebRTC", "Azure", "SSMS", "Hugging Face", "AWS S3"],
     current: false,
   },
   {
-    period: "2018 — 2019",
-    role: "Freelance Developer",
-    company: "Self-Employed",
+    period: "July 2023 — August 2023",
+    role: "Business Operations Intern",
+    company: "Jazz Head Office",
     description:
-      "Delivered custom web solutions for small businesses and startups. Built 15+ websites and applications, handling everything from design to deployment.",
+      "Supported business operations at Jazz Pakistan, standardizing contract data, coordinating with stakeholders, and improving compliance, reporting, and process alignment across cross-functional teams.",
     technologies: ["JavaScript", "PHP", "WordPress", "MySQL"],
     current: false,
   },
 ];
 
 export const Experience = () => {
+  const { ref, isInView } = useInViewOnce();
+
   return (
-    <section id="experience" className="py-32 relative overflow-hidden">
+    <section
+      id="experience"
+      ref={ref}
+      className={`py-32 relative overflow-hidden section-reveal ${
+        isInView ? "in-view" : ""
+      }`}
+    >
       <div
         className="absolute top-1/2 left-1/4 w-96
        h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2"
@@ -84,11 +94,13 @@ export const Experience = () => {
             {experiences.map((exp, idx) => (
               <div
                 key={idx}
-                className="relative grid md:grid-cols-2 gap-8 animate-fade-in"
+                className={`relative grid md:grid-cols-2 gap-8 experience-item ${
+                  idx % 2 === 0 ? "experience-item-left" : "experience-item-right"
+                }`}
                 style={{ animationDelay: `${(idx + 1) * 150}ms` }}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
+                <div className="experience-dot absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
                   {exp.current && (
                     <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
                   )}
