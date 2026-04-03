@@ -14,15 +14,28 @@ const skills = [
   "Next.js",
   "TypeScript",
   "Node.js",
+  "Express.js",
   "PostgreSQL",
   "MongoDB",
+  "Supabase",
   "Firebase",
+  "Cosmos DB",
   "DotNet",
+  "SSMS",
+  "REST APIs",
   "Redis",
+  "Webhooks",
+  "WebRTC",
+  "Hugging Face",
+  "AWS S3",
+  "Azure Message Queue",
+  "Cron Jobs",
   "Docker",
-  "AWS",
+  "SSO",
+  "Ngrok",
   "Vercel",
   "Tailwind CSS",
+  "Shadcn UI",
   "Prisma",
   "Jest",
   "Figma",
@@ -175,14 +188,16 @@ export const Hero = () => {
               className="absolute right-0 top-0 bottom-0 w-32
              bg-gradient-to-l from-background to-transparent z-10"
             />
-            <div className="flex animate-marquee">
-              {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx} className="flex-shrink-0 px-8 py-4">
-                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
-              ))}
+            <div className="overflow-x-auto no-scrollbar touch-pan-x">
+              <div className="flex w-max animate-marquee-loop">
+                {[...skills, ...skills, ...skills, ...skills].map((skill, idx) => (
+                  <div key={idx} className="flex-shrink-0 px-8 py-4">
+                    <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
