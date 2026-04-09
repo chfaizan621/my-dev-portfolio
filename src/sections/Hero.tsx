@@ -148,7 +148,7 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-3xl p-2 glow-border transition-all duration-500 ease-out">
                 <img
-                  src="/profile-pic2.png"
+                  src="/profile-pic3.jpeg"
                   alt="Pedro Machado"
                   className="w-full aspect-[4/5] object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-105"
                 />
@@ -165,7 +165,7 @@ export const Hero = () => {
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500 transition-transform duration-500 group-hover:translate-y-[-4px] group-hover:translate-x-[-2px]">
                   <div className="text-2xl font-bold text-primary">2+</div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-xs text-white">
                     Years Exp.
                   </div>
                 </div>
