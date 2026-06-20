@@ -86,7 +86,7 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • MERN Stack Expert
+                Software Engineer
               </span>
             </div>
 
@@ -103,7 +103,7 @@ export const Hero = () => {
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
                 Hi, I'm Muhammad Faizan — a software engineer specializing in
-                React, Next.js, Node.js, and TypeScript. I build scalable, performant web
+                React, Next.js, Node.js, .NET and TypeScript. I build scalable, performant web
                 applications that users love.
               </p>
             </div>

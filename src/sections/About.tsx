@@ -65,7 +65,7 @@ export const About = () => {
                 modern full-stack technologies.
               </p>
               <p>
-                I specialize in React, Next.js, Node.js, and TypeScript,
+                I specialize in React, Next.js, Node.js, .NET and TypeScript,
                 developing complete applications from responsive user interfaces
                 to robust backend services and APIs. My approach blends solid
                 architecture, clean code practices, and performance-focused
